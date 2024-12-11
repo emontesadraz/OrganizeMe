@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Color azul cielo cuando está activo -->
+    <item android:color="#03A9F4" android:state_checked="true" />
+    <!-- Color gris cuando está inactivo -->
+    <item android:color="#9E9E9E" android:state_checked="false" />
+</selector>
