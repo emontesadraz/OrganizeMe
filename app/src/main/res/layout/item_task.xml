@@ -1,7 +1,17 @@
-<TextView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/task_name"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:textSize="16sp" />
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5"> <!-- Fondo gris claro para contrastar con el blanco -->
+
+    <TextView
+        android:id="@+id/task_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tarea ejemplo"
+        android:textColor="#212121"
+        android:textSize="18sp" />
+
+</LinearLayout>

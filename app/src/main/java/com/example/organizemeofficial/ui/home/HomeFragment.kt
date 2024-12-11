@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
         // Configura el mensaje de bienvenida
         val textViewWelcome: TextView = binding.textWelcome
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
-        val userName = sharedPref?.getString("username", "Usuario")
+        val userName = sharedPref?.getString("username", "Ana")
         textViewWelcome.text = "Bienvenida $userName"
 
         // Configura la lista de tareas
