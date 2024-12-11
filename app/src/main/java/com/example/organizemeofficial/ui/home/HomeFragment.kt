@@ -1,5 +1,8 @@
 package com.example.organizemeofficial.ui.home
 
+import android.content.Context
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +15,6 @@ import com.example.organizemeofficial.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -28,10 +28,22 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        // Configura el mensaje de bienvenida
+        val textViewWelcome: TextView = binding.textWelcome
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        val userName = sharedPref?.getString("username", "Usuario")
+        textViewWelcome.text = "Bienvenida $userName"
+
+        // Configura la lista de tareas
+        val recyclerTasks = binding.recyclerTasks
+        recyclerTasks.layoutManager = LinearLayoutManager(requireContext())
+
+        // Recupera las tareas desde el ViewModel
+        homeViewModel.tasks.observe(viewLifecycleOwner) { tasks ->
+            val adapter = TaskAdapter(tasks)
+            recyclerTasks.adapter = adapter
         }
+
         return root
     }
 

@@ -6,8 +6,19 @@ import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
 
+    // Texto del mensaje de bienvenida
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Bienvenida a tu app"
     }
     val text: LiveData<String> = _text
+
+    // Lista de tareas completadas
+    private val _tasks = MutableLiveData<List<Task>>().apply {
+        value = listOf(
+            Task("Comprar pan", true),
+            Task("Hacer ejercicio", true),
+            Task("Leer un libro", true)
+        )
+    }
+    val tasks: LiveData<List<Task>> = _tasks
 }
