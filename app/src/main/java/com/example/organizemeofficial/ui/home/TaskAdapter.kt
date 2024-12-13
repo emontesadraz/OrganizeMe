@@ -22,7 +22,7 @@ class TaskAdapter(private val tasks: List<Task>) : RecyclerView.Adapter<TaskAdap
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
-        holder.taskName.text = task.name
+        holder.taskName.text = task.title
     }
 
     override fun getItemCount(): Int = tasks.size

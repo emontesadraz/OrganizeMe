@@ -16,9 +16,9 @@ class HomeViewModel : ViewModel() {
     // Lista de tareas completadas
     private val _tasks = MutableLiveData<List<Task>>().apply {
         value = listOf(
-            Task("Comprar pan", true),
-            Task("Hacer ejercicio", true),
-            Task("Leer un libro", true)
+            Task("Comprar pan", "Ir a la panadería", true),
+            Task("Hacer ejercicio", "Correr 30 minutos", true),
+            Task("Leer un libro", "Terminar el libro de ciencia ficción", true)
         )
     }
     val tasks: LiveData<List<Task>> = _tasks
