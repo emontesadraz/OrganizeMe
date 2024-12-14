@@ -1,7 +1,6 @@
 package com.example.organizemeofficial.ui.home
 
 import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,10 +15,10 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var adapter: TaskAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
@@ -38,10 +37,13 @@ class HomeFragment : Fragment() {
         val recyclerTasks = binding.recyclerTasks
         recyclerTasks.layoutManager = LinearLayoutManager(requireContext())
 
-        // Recupera las tareas desde el ViewModel
+        // Configura el adaptador vacío inicialmente
+        adapter = TaskAdapter(emptyList())
+        recyclerTasks.adapter = adapter
+
+        // Observa las tareas desde el ViewModel
         homeViewModel.tasks.observe(viewLifecycleOwner) { tasks ->
-            val adapter = TaskAdapter(tasks)
-            recyclerTasks.adapter = adapter
+            adapter.updateTasks(tasks) // Actualiza el adaptador con la nueva lista de tareas
         }
 
         return root

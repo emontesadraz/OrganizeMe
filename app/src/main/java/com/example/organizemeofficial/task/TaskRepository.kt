@@ -1,25 +1,35 @@
 package com.example.organizemeofficial.task
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+
 object TaskRepository {
 
-    private val tasks = mutableListOf<Task>()
+    private val _tasks = MutableLiveData<MutableList<Task>>(mutableListOf())
+    val tasks: LiveData<MutableList<Task>> = _tasks
 
     fun getTasks(): List<Task> {
-        return tasks
+        return _tasks.value ?: emptyList()
     }
 
     fun addTask(task: Task) {
-        tasks.add(task)
+        val currentTasks = _tasks.value ?: mutableListOf()
+        currentTasks.add(task)
+        _tasks.postValue(currentTasks) // Notificamos los cambios a los observadores
     }
 
     fun updateTask(task: Task, isCompleted: Boolean) {
-        val index = tasks.indexOf(task)
+        val currentTasks = _tasks.value ?: mutableListOf()
+        val index = currentTasks.indexOf(task)
         if (index != -1) {
-            tasks[index] = task.copy(isCompleted = isCompleted)
+            currentTasks[index] = task.copy(isCompleted = isCompleted)
+            _tasks.postValue(currentTasks) // Notificamos los cambios
         }
     }
 
     fun removeTask(task: Task) {
-        tasks.remove(task)
+        val currentTasks = _tasks.value ?: mutableListOf()
+        currentTasks.remove(task)
+        _tasks.postValue(currentTasks) // Notificamos los cambios
     }
 }

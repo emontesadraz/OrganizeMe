@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.organizemeofficial.R
 import com.example.organizemeofficial.task.Task
 
-class TaskAdapter(private val tasks: List<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(private var tasks: List<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val taskName: TextView = view.findViewById(R.id.task_name)
@@ -26,4 +26,9 @@ class TaskAdapter(private val tasks: List<Task>) : RecyclerView.Adapter<TaskAdap
     }
 
     override fun getItemCount(): Int = tasks.size
+
+    fun updateTasks(newTasks: List<Task>) {
+        tasks = newTasks
+        notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
+    }
 }

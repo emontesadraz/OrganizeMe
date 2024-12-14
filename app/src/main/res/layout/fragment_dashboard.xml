@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Título de la tarea"
+        android:textColor="#000000"
+        android:textColorHint="#707070"
         android:inputType="text"/>
 
     <EditText
@@ -18,6 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Descripción de la tarea"
+        android:textColor="#000000"
+        android:textColorHint="#707070"
         android:inputType="text"/>
 
     <Button
