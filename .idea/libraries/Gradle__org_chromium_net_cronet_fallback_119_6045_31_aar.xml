@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.chromium.net:cronet-fallback:119.6045.31@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/8.9/transforms/742c10746f488a361a664746bff7a27d/transformed/cronet-fallback-119.6045.31/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.9/transforms/742c10746f488a361a664746bff7a27d/transformed/cronet-fallback-119.6045.31/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.chromium.net/cronet-fallback/119.6045.31/e9ac17e65460c5ae31c060686fee10b52fd2ca00/cronet-fallback-119.6045.31-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
